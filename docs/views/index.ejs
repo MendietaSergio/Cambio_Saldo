@@ -12,25 +12,24 @@
 </head>
 
 <body>
-  <header>
+  <div class="container-fluid">
+    <header>
+      <h1>SALDO</h1>
+    </header>
 
-  </header>
-  <div class="container">
-    <div class="row">
 
+    <div class="caja-principal">
       <form action="">
-        <div class="caja-principal">
-          <div class="caja-input">
-            <input id="entrada" type="number">
-            <select name="select1">
-              <option value="">Tipo de cambio</option>
-              <% mediosdepago.forEach(medio=>{%>
-                <option id="primero" value="<%-medio.id%>">
-                  <%-medio.nombre%>
-                </option>
-                <%}) %>
-            </select>
-          </div>
+        <div class="caja-input">
+          <input id="entrada" type="number">
+          <select name="select1">
+            <option value="">Tipo de cambio</option>
+            <% mediosdepago.forEach(medio=>{%>
+              <option id="primero" value="<%-medio.id%>">
+                <%-medio.nombre%>
+              </option>
+              <%}) %>
+          </select>
           <div class="caja-input">
             <input id="salida" type="number">
             <select name="select2">
@@ -44,10 +43,38 @@
                 <%}) %>
             </select>
           </div>
+          <div class="caja-input">
+            <input type="submit" class="btn btn-success"></input>
+          </div>
+          
         </div>
-        <input type="submit" class="btn btn-success"></input>
+        
       </form>
     </div>
+    <!--
+    <div class="instrucciones">
+      <div class="titulo">
+        <h2>SALDO</h2>
+        <span>Intercambio en 3 pasos</span>
+      </div>
+      <div>
+        <div class="caja-num">
+          <span class="numero">1</span>
+        </div>
+        <span class="lista">Cotizas y haces tu pedido.</span>
+      </div>
+      <div class="lista">
+        <span class="numero">2</span>
+        <span>Recibes las instrucciones para hacer tu envío.</span>
+      </div>
+      <div class="lista">
+        <span class="numero">3</span>
+        <span>Te enviamos el saldo cotizado</span>
+      </div>
+    </div>-->
+  </div>
+
+
   </div>
   </div>
 
