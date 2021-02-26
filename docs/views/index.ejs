@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel='stylesheet' href='../stylesheets/<%= css %>' />
+</head>
+
+<body>
+  <header>
+
+  </header>
+  <div class="container">
+    <div class="row">
+
+      <form action="">
+        <div class="caja-principal">
+          <div class="caja-input">
+            <input id="entrada" type="number">
+            <select name="select1">
+              <option value="">Tipo de cambio</option>
+              <% mediosdepago.forEach(medio=>{%>
+                <option id="primero" value="<%-medio.id%>">
+                  <%-medio.nombre%>
+                </option>
+                <%}) %>
+            </select>
+          </div>
+          <div class="caja-input">
+            <input id="salida" type="number">
+            <select name="select2">
+              <option value="">
+                Cotizar a </option>
+              <% mediosdepago.forEach(medio=>{%>
+
+                <option value="<%-medio.id%>">
+                  <%-medio.nombre%>
+                </option>
+                <%}) %>
+            </select>
+          </div>
+        </div>
+        <input type="submit" class="btn btn-success"></input>
+      </form>
+    </div>
+  </div>
+  </div>
+
+</body>
+
+</html>
