@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel='stylesheet' href='../stylesheets/<%= css %>' />
+    <title>Contacto</title>
+
+</head>
+
+<body>
+    <div>
+        <form action="" method="POST">
+            <div class="caja-form">
+                <h2>¡Llena tu formulario para hacer tu pedido!</h2>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Nombre y apellido">
+                <span class="text-danger" id="errorNombre"></span>
+
+                <input type="email" name="email" id="email" class="form-control" placeholder="Correo electrónico">
+                <span class="text-danger" id="errorEmail"></span>
+
+                <input type="number" name="numero" id="numero" class="form-control" placeholder="Número de Whatsapp">
+                <span class="text-danger" id="errorNumero"></span>
+
+                <input type="submit" value="Hace tu pedido" id="boton"></input>
+                <span class="text-danger" id="errorSubmit"></span>
+            </div>
+        </form>
+    </div>
+</body>
+
+<script src="../validation/contacto.js"></script>
+</html>

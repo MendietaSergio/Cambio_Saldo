@@ -1,0 +1,55 @@
+body{
+    margin: 0;
+    background-position: center center;
+    /* Para que la imagen de fondo no se repita */
+    background-repeat: no-repeat;
+    /* La imagen se fija en la ventana de visualización para que la altura de la imagen no supere a la del contenido */
+    background-attachment: fixed;
+    /* La imagen de fondo se reescala automáticamente con el cambio del ancho de ventana del navegador */
+    background-size: cover;
+    /* Se muestra un color de fondo mientras se está cargando la imagen
+    de fondo o si hay problemas para cargarla */
+    background-color: #302070;
+}
+span{
+    color: red;
+    top: -22px;
+    position: relative;
+}
+form{
+    width: 50%;
+    margin: auto;
+    background-color: #00cc99;
+    padding: 10px 20px;
+    /*colocando esto hace que tome los 40px del padding en los 450px de ancho*/
+    box-sizing: border-box;
+    border-radius: 4px;
+    top: 65px;
+    position: relative;
+}
+form:hover{
+    box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
+}
+h2{
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+input{
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 7px;
+    box-sizing: border-box;
+}
+#boton{
+    background-color: royalblue;
+    padding: 20px;
+    color: #fff;
+    border-color: rgb(73, 63, 211);
+}
+#boton:hover{
+    background-color: rgba(65, 105, 255, .4);
+    cursor: pointer;
+}

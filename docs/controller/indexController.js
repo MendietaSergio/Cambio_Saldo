@@ -13,5 +13,10 @@ module.exports = {
             .catch(error =>{
                 res.send(error)
             })
+    },
+    form:(req, res) =>{
+        res.render('form',{
+            css:'form.css'
+        })
     }
 }
