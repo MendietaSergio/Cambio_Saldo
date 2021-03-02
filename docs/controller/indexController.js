@@ -7,16 +7,22 @@ module.exports = {
                 res.render('index', {
                     title: "Saldo",
                     css: 'index.css',
-                    mediosdepago: medios
+                    mediosdepago: medios,
+                    script:"contactValidacion.js"
                 })
             })
             .catch(error =>{
                 res.send(error)
             })
     },
+    processHome:(req,res) =>{
+
+    },
     form:(req, res) =>{
         res.render('form',{
-            css:'form.css'
+            title: 'Contacto',
+            css:'form.css',
+            script: 'contactValidation.js'
         })
     }
 }

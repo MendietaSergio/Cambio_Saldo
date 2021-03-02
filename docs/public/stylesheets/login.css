@@ -17,11 +17,6 @@ div.contenedor{
                         "form form form form"
                         "footer footer footer footer";
 }
-span{
-    font-weight: bold;
-    top: -18px;
-    position: relative;
-}
 div .header-titulo{
     font-size: 5rem;
 }
@@ -35,7 +30,7 @@ div.header{
     font-weight: bold;
     color: green;
 }
-div .caja-form{
+div .caja-usuario{
     margin: 10px;
     grid-area: form;
 }
@@ -47,7 +42,9 @@ form{
     /*colocando esto hace que tome los 40px del padding en los 450px de ancho*/
     box-sizing: border-box;
     border-radius: 4px;
-    
+}
+label{
+    padding-bottom: 3px;
 }
 div .footer{
     background-color: cadetblue;
@@ -79,6 +76,7 @@ input{
 #boton{
     background-color: royalblue;
     color: #fff;
+    width: 100%;
     border-color: rgb(73, 63, 211);
 }
 #boton:hover{

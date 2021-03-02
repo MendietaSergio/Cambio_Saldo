@@ -1,67 +1,42 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>
-    <%= title %>
-  </title>
-  <!-- CSS only 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
-  <link rel='stylesheet' href='../stylesheets/<%= css %>' />
-</head>
-
-<body>
-  <div class="contenedor">
-    <div class="header">
-        <header>
-          <!--HACER QUE CAMBIE EL TITULO "SALDO/INTERCAMBIO/VENDER"-->
-            <h1 class="header-titulo" id="tituloP">SALDO</h1>
-        </header>
-    </div>
+<!--HEAD MODULARIZADO-->
+<%- include('./partials/head.ejs')%>
+<!--HEADER MODULARIZADO-->
+<%- include('./partials/header.ejs')%>
     <div class="caja-cambio">
-        <form action="" method="POST">
-            <div class="caja-input">
-                <input id="entrada" type="number">
-                <select name="select1">
-                    <option value="">Tipo de cambio</option>
+      <form action="" method="POST">
+        <div class="caja-input">
+          <input id="entrada" type="number" value="100">
+          <select name="select1">
+            <option value="">Tipo de cambio</option>
             <% mediosdepago.forEach(medio=>{%>
               <option id="primero" value="<%-medio.id%>">
                 <%-medio.nombre%>
               </option>
               <%}) %>
-                </select>
-            </div>
-            <div class="caja-input">
-                <input id="salida" type="number">
-                <select name="select2">
-                    <option value="">Cotizar a </option>
-              <% mediosdepago.forEach(medio=>{%>
-                <option value="<%-medio.id%>">
-                  <%-medio.nombre%>
-                </option>
-                <%}) %>
-                </select>
-            </div>
-            <div class="caja-input">
-                <button type="submit" class="btn btn-success">Siguiente</button>
-            </div>
-        </form>
+          </select>
+        </div>
+        <div class="caja-input">
+          <input id="salida" type="number">
+          <select name="select2">
+            <option value="">Cotizar a </option>
+            <% mediosdepago.forEach(medio=>{%>
+              <option value="<%-medio.id%>">
+                <%-medio.nombre%>
+              </option>
+              <%}) %>
+          </select>
+        </div>
+        <div class="caja-input">
+          <button type="submit" class="btn btn-success">Siguiente</button>
+        </div>
+      </form>
     </div>
     <div class="caja-info">
-        <h3 class="info-compra">Comprá en 3 sencillos pasos</h3>
-        <ol>
-            <li>Cotizas y haces tu pedido</li>
-            <li>Recibes las instrucciones para hacer tu envío</li>
-            <li>Te enviamos el saldo cotizado</li>
-        </ol>
+      <h3 class="info-compra">Comprá en 3 sencillos pasos</h3>
+      <ol>
+        <li>Cotizas y haces tu pedido</li>
+        <li>Recibes las instrucciones para hacer tu envío</li>
+        <li>Te enviamos el saldo cotizado</li>
+      </ol>
     </div>
-    <footer class="footer">
-        <span>Copryright</span>
-    </footer>
-</div>
-</body>
-
-</html>
+<%- include('./partials/footer.ejs') %>

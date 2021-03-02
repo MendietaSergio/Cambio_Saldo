@@ -1,13 +1,12 @@
-
-/*addEventListener('DOMContentLoaded',()=>{
+console.log("Vinculado");
+window.addEventListener('DOMContentLoaded',()=>{
     console.log("vinculado?");
     const formulario = document.querySelector('form');
-    console.log("vinculado..");
     let inputNombre = formulario.elements[0];
     let inputEmail = formulario.elements[1];
     let inputNumero = formulario.elements[2];
 
-    /* EXPRESION REGULAR, CONDICION PARA VALIDAR EMAIL
+    // EXPRESION REGULAR, CONDICION PARA VALIDAR EMAIL
     let regExEmail =  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
     inputNombre.addEventListener('blur',function(){
@@ -94,4 +93,4 @@
         }
     })
 
-})*/
+})
