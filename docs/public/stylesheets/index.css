@@ -5,84 +5,87 @@
 }
 body {
   background-color: #F3F3F3;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Roboto Slab', serif;
 }
-
-a {
-  color: #000000;
-}
-div.container-fluid{
-  background-color: #302070;
+div.contenedor{
   width: 100%;
-  height: auto;
+  background-color: rgb(255, 255, 255);
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-areas: "header header header header"
+                      "caja-cambio caja-cambio caja-info caja-info"
+                      "footer footer footer footer";
 }
-div header h1{
-  background-color: #302070;
-  font-weight: 900;
-  text-align: center;
+div .header-titulo{
+  font-size: 5rem;
+}
+div.header{
+  background-color: cadetblue;
+  grid-area: header;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
   color: green;
-  padding-top: 100px;
-  padding-bottom: 100px;
 }
-div .caja-principal{
-  background-color: rgb(145, 128, 128);
-  height: auto;
-  width: 98%;  
-  border-radius: 3%;
-  margin: 0 30px 0 10px;
+div.caja-cambio{
+  background-color: chocolate;
+  grid-area: caja-cambio;
+  height: 300px;
+  margin: 30px;
 }
-form{
-  width: 98%;
-  margin: auto;  
-  padding: 10px 20px;
-  /*colocando esto hace que tome los 40px del padding en los 450px de ancho*/
-  box-sizing: border-box;
-  border-radius: 4px;
-  top: 65px;
-  position: relative;
-  height: auto;
+div.caja-cambio form{
+  padding: 20px;
+}
+div.caja-cambio .caja-input{
+  width: 100%;
 }
 div input,select{
-  font-size: 295%;
-  width: 100%;
-  height: 240px;
-  margin-bottom: 20px;
-  padding: 7px;
-  box-sizing: border-box;
-}/*
+  font-weight: 900;
+  text-align: end;
+  height: 110px;
+  width: 49%;
+}
 div .btn{
-  width: 100%;
-  77position: relative;
-  right: 0px;
-  top: -1px;
-  height: 143px;
-  font-size: 100px;
+  margin-top: 10px;
+  height: 40px;
+  width: 99%;
 }
-/*
 
-div .caja-input{
-  height: 150px;
-  padding-top: 4px;
-  margin: 18px;
+div.caja-info{
+  background-color: crimson;
+  grid-area: caja-info;
+  height: 300px;
+  margin:30px;
 }
-div input, select{
-  width: 50%;
+div .info-compra{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin-top: 30px;
 }
-div select{
-  width: 180px;
-}*/
-
-div .caja-num{
-  font-weight: 700;
-  
-  width: 40px;
-  height: 44px;
-  line-height: 48px;
-  text-align: center;
-  border-radius: 16px;
-  margin-right: 16px;
-  background-color: #ceccd4;
+div ol{
+  margin: 20px;
+  padding-left: 30px;
+  margin-top: 10px;
 }
-div .lista{
-  vertical-align: middle;
+div li{
+  padding: 20px;
+}
+li::marker{
+  font-weight: 900;
+  color: blue;
+}
+div .footer{
+  background-color: cadetblue;
+  height: 30px;
+  grid-area: footer;
+}
+.footer span{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 6px;
 }
