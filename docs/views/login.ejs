@@ -3,19 +3,22 @@
 
         <div class="caja-usuario">
             <form action="" method="POST">
-                <label for="email"><i class="far fa-user"></i></label>
-                <%if(typeof old !="undefined" && old.email){ %>
-                    <input type="email" class="form-control" name="email" value="<%=old.email%>">
-                <%}else{%>
-                    <input type="email" class="form-control" placeholder="example@gmail.com" name="email" >
-                <%}%>
-                <small class="text-danger" id="errorEmail"><% (typeof errors !="undefined" && errors.email)?errors.email.msg: "" %></small>
+                <div>
+                    <label for="email"><i class="far fa-user"></i></label>
+                    <%if(typeof old !="undefined" && old.email){ %>
+                        <input type="email" class="form-control" name="email" value="<%=old.email%>">
+                    <%}else{%>
+                        <input type="email" class="form-control" placeholder="example@gmail.com" name="email">
+                    <%}%>
+                        <small class="text-danger" id="errorEmail"><% (typeof errors !="undefined" && errors.email)?errors.email.msg: "" %></small>
+                </div>
+                <div>
+                    <label for="password"><i class="fas fa-key"></i></label>
+                    <input type="password" class="form-control" placeholder="******" name="password">
+                    <small class="text-danger" id="errorPassword"><% (typeof errors !="undefined" && errors.password)?errors.password.msg: "" %>
+                    </small>
 
-                <label for="password"><i class="fas fa-key"></i></label>               
-                <input type="password" class="form-control" placeholder="******" name="password">
-                <small class="text-danger" id="errorPassword"><% (typeof errors !="undefined" && errors.password)?errors.password.msg: ""%></small>
-                
-
+                </div>
                 <button type="submit" id="boton" class="btn btn-primary">ENVIAR</button>
                 <small class="text-danger" id="errorSubmit"></small>
             </form>

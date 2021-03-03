@@ -12,7 +12,7 @@ module.exports = {
     processLogin:(req,res)=>{
         let errors  = validationResult(req);
         
-        if(errors.isEmpty()){
+        if(!errors.isEmpty()){
             db.Usuarios.findOne({
                 where:{
                     email:req.body.email
@@ -26,7 +26,7 @@ module.exports = {
                     avatar: user.avatar,
                     rol: user.rol
                 }
-                return res.redirect('index')
+                res.redirect('/')
             })
             .catch(error =>{
                 console.log("entra user>error");
@@ -40,7 +40,6 @@ module.exports = {
                 old: req.body,
                 script:'loginValidation.js',
             })
-            res.send(error.mapped())
             .catch(error => res.send(error))
         }
     }

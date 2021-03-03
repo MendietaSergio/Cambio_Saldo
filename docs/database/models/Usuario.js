@@ -19,11 +19,15 @@ module.exports = (sequelize, dataTypes) =>{
         password: {
             type: dataTypes.STRING(45),
             allowNull: false
+        },
+        rol:{
+            type: dataTypes.STRING(45),
+            allowNull: false
         }
     }
 
     let config = {
-        tableName: "usuario",
+        tableName: "usuarios",
         timestamps: false
     }
     const Usuario = sequelize.define(alias, cols, config);
