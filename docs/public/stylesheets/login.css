@@ -83,3 +83,11 @@ input{
     background-color: rgba(65, 105, 255, .4);
     cursor: pointer;
 }
+small{
+    position: relative;
+    top: -18px;
+    font-weight: 700;
+}
+#errorSubmit{
+    top: -2px;
+}

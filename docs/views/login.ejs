@@ -10,8 +10,6 @@
                     <input type="email" class="form-control" placeholder="example@gmail.com" name="email" >
                 <%}%>
                 <small class="text-danger" id="errorEmail"><% (typeof errors !="undefined" && errors.email)?errors.email.msg: "" %></small>
-                
-                <br>
 
                 <label for="password"><i class="fas fa-key"></i></label>               
                 <input type="password" class="form-control" placeholder="******" name="password">
@@ -19,6 +17,7 @@
                 
 
                 <button type="submit" id="boton" class="btn btn-primary">ENVIAR</button>
+                <small class="text-danger" id="errorSubmit"></small>
             </form>
         </div>
 

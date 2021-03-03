@@ -8,6 +8,6 @@ const userController = require('../controller/userController.js');
 const loginValidation = require('../validation/loginValidation');
 
 /* GET users listing. */
-router.get('/',loginValidation, userController.login);
-
+router.get('/', userController.login);
+router.post('/',loginValidation, userController.processLogin);
 module.exports = router;

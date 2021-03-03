@@ -1,4 +1,4 @@
-addEventListener('DOMContentLoaded', function () {
+addEventListener('load', function () {
     console.log("Vinculado..!>");
 
     const formulario = document.querySelector('form');
@@ -43,29 +43,33 @@ addEventListener('DOMContentLoaded', function () {
         }
     })
     formulario.addEventListener('submit',function(e){
-        e.preventDefault;
+        e.preventDefault();
 
         let elementos = formulario.elements;
 
         let error = false;
         for(let i=0; i<2; i++){
             if(elementos[i].value == 0){
+                console.log(elementos[i]);
                 elementos[i].classList.add('is-invalid');
                 error = true;
             }
         }
+        if(elementos[0].value.length===0){
+            error = true
+            errorEmail.innerHTML = "Debes ingresar su email.";
+            this.classList.add('is-invalid');
+        }
+        if(elementos[1].value.length===0){
+            error = true;
+            errorPassword.innerHTML = "Debes ingresa su password.";
+            this.classList.add('is-invalid');
+        }
         
         if(!error){
             errorSubmit.innerHTML = "";
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: '¡Gracias, pudiste logear!',
-                showConfirmButton: false,
-                timer: 2500
-            }).then(() => {
-                formulario.submit();
-                })
+            formulario.submit();
+            
         }else{
             errorSubmit.innerHTML = "Los campos señalados son obligatorios."
         }
