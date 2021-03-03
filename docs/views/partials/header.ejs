@@ -4,4 +4,26 @@
             <!--HACER QUE CAMBIE EL TITULO "SALDO/INTERCAMBIO/VENDER"-->
             <h1 class="header-titulo" id="tituloP">SALDO</h1>
         </header>
+<!----> <div class="menuUsuario">
+          <div class="usuario">
+            <% if (typeof user !="undefined" ) { %>
+                <div class="dropdown">
+                    <span class="btn btn-success dropdown-toggle" id="dropdownMenu" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="true"><%= locals.user.nick %></span>
+                    <div class="dropdown-menu " aria-labelledby="dropdownMenu">
+                        <a href="/editar">Editar valores</a>
+                        <a>Salir</a>
+
+                    </div>
+                </div>
+
+                <span></span>
+            <% }else{ %>
+                <span>Invitado</span>
+            <% } %>
+        </div>
+</div>
+        
+
+        </nav>
     </div>

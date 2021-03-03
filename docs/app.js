@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 const session = require('express-session');
 
+const localsUserCheck = require('./middlewares/localsUserCheck')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/usuario');
@@ -23,13 +24,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
-  secret:"Saldo",
+  secret:"Saldo", 
   resave: true,
   saveUninitialized: true
 }))
 
+app.use(localsUserCheck);
+
 app.use('/', indexRouter);
-app.use('/usuario', usersRouter);
+app.use('/admin', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

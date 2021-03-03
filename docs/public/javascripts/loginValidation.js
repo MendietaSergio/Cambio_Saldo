@@ -7,9 +7,9 @@ addEventListener('load', function () {
     let inputPassword = formulario.elements[1]
 
     // EXPRESION REGULAR, CONDICION PARA VALIDAR EMAIL
-    let regExEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    let regExEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 
-    inputEmail.addEventListener('blur', function () {
+    inputEmail.addEventListener('keyup', function () {
         switch (true) {
             case this.value.length === 0:
                 errorEmail.innerHTML = "Debe llenar este campo";
@@ -18,6 +18,7 @@ addEventListener('load', function () {
             case !regExEmail.test(this.value):
                 errorEmail.innerHTML = "El email debe ser valido.";
                 this.classList.add('is-invalid');
+                break;
             default:
                 this.classList.remove('is-invalid');
                 this.classList.add('is-valid');
@@ -25,7 +26,7 @@ addEventListener('load', function () {
                 break;
         }
     })
-    inputPassword.addEventListener('blur', function(){
+    inputPassword.addEventListener('keyup', function(){
         switch (true) {
             case this.value.length === 0:
                 errorPassword.innerHTML = "Debe llenar este campo.";
@@ -34,6 +35,7 @@ addEventListener('load', function () {
             case this.value.length < 6:
                 errorPassword.innerHTML = "Debe tener mínimo 6 carácteres.";
                 this.classList.add('is-invalid');
+                break;
             default:
                 errorPassword.innerHTML = "";
                 this.classList.remove('is-invalid');

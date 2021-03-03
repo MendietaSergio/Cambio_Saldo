@@ -6,13 +6,15 @@ module.exports = {
         res.render('login',{
             title:'Login',
             css:'login.css',
-            script:'loginValidation.js'
+            //script:'loginValidation.js'
         })
     },
     processLogin:(req,res)=>{
-        let errors  = validationResult(req);
         
-        if(!errors.isEmpty()){
+        let errors  = validationResult(req);
+        console.log(errors.mapped());
+        //res.send(errors.mapped())
+        if(errors.isEmpty()){
             db.Usuarios.findOne({
                 where:{
                     email:req.body.email
@@ -21,12 +23,11 @@ module.exports = {
             .then(user =>{
                 req.session.user = {
                     id: user.id,
-                    nick: user.nombre + " " + user.apellido,
+                    nick: user.nombre,
                     email: user.email,
-                    avatar: user.avatar,
                     rol: user.rol
                 }
-                res.redirect('/')
+                return res.redirect('/')
             })
             .catch(error =>{
                 console.log("entra user>error");
@@ -38,7 +39,6 @@ module.exports = {
                 css:'login.css',
                 errors: errors.mapped(),
                 old: req.body,
-                script:'loginValidation.js',
             })
             .catch(error => res.send(error))
         }
