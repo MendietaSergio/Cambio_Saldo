@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #302070;
+    font-family: 'Roboto Slab', serif;
+}
+div.contenedor{
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    
+    grid-template-columns: repeat(4,1fr);
+    grid-template-areas: "header header header header"
+                        "caja-cambio caja-cambio caja-cambio caja-cambio"
+                        "footer footer footer footer";
+}
+div .header-titulo{
+    font-size: 5rem;
+}
+div .usuario{
+    position: relative;
+    left: 440px;
+}
+div.header{
+    background-color: cadetblue;
+    grid-area: header;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: green;
+}
+div.caja-cambio{
+    padding: 50px;
+    background-color: chocolate;
+    grid-area: caja-cambio;
+    height: auto;
+    margin: 30px;
+}
+div.caja-cambio form{
+    padding: 20px;
+}
+form{
+    width: 40%;
+    margin: auto;
+    padding: 10px 20px;
+    /*colocando esto hace que tome los 40px del padding en los 450px de ancho*/
+    box-sizing: border-box;
+    border-radius: 4px;    
+}
+div.caja-cambio .caja-input{
+    width: auto;
+    padding: 3px;
+}
+div input,select,label{
+    font-weight: 900;
+    text-align: end;
+    height: 60px;
+    width: 49%;
+}
+div label{
+    text-align: center;
+}
+div .btn{
+    margin-top: 10px;
+    height: 40px;
+    width: 49%;
+}
+h2{
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+div .footer{
+    grid-area: footer;
+    background-color: cadetblue;
+    height: 30px;    
+}
+.footer span{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 6px;
+}
+form:hover{
+    box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
+}

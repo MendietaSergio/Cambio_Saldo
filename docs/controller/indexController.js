@@ -10,7 +10,7 @@ module.exports = {
                     title: "Saldo",
                     css: 'index.css',
                     mediosdepago: medios,
-                    script:"contactValidacion.js"
+                    script:"indexEcuacion.js"
                 })
             })
             .catch(error =>{

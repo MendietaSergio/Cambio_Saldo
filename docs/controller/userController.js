@@ -42,5 +42,22 @@ module.exports = {
             })
             .catch(error => res.send(error))
         }
+    },
+    edit:(req,res)=>{
+        db.MediosDePagos.findAll()
+            .then(medios => {
+                res.render('edit', {
+                    title: "Editar coeficiente",
+                    css: 'edit.css',
+                    mediosdepago: medios,
+                    script:"indexEcuacion.js"
+                })
+            })
+            .catch(error =>{
+                res.send(error)
+            })
+    },
+    processEdit:(req,res)=>{
+
     }
 }

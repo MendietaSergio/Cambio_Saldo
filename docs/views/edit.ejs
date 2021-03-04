@@ -1,12 +1,45 @@
 <%- include('./partials/head.ejs')%>
-<%- include('./partials/header.ejs')%>
+    <%- include('./partials/header.ejs')%>
+
+        <div class="caja-cambio">
+            <form action="#">
+                <h2>Edita el valor</h2>
+                <div class="caja-input">
+                    <input id="entrada" type="number" value="100">
+                    <select name="select1">
+                        <option value="">Tipo de cambio</option>
+                        <% mediosdepago.forEach(medio=>{%>
+                            <option id="primero" value="<%-medio.id%>">
+                                <%-medio.nombre%>
+                            </option>
+                            <%}) %>
+                    </select>
+                </div>
+                <div class="caja-input">
+                    <input id="salida" type="number">
+                    <select name="select2">
+                        <option value="">Cotizar a </option>
+                        <% mediosdepago.forEach(medio=>{%>
+                            <option value="<%-medio.id%>">
+                                <%-medio.nombre%>
+                            </option>
+                            <%}) %>
+                    </select>
+                </div>
+                <div class="caja-input">
+                    <label for="coeficiente">Valor: </label>
+                    <input id="coeficiente">
+                </div>
+                <div class="caja-input">
+                    <a href="/"><button type="button" class="btn btn-danger">Cancelar</button></a>
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                </div>
+            </form>
+        </div>
 
 
 
 
 
 
-
-
-<%- include('./partials/footer.ejs')%>
-
+        <%- include('./partials/footer.ejs')%>
