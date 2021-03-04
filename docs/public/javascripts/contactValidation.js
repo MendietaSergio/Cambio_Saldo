@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded',()=>{
 
     // EXPRESION REGULAR, CONDICION PARA VALIDAR EMAIL
     let regExEmail =  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
+    let regExNumero = /^[+]*[(]?[0-9]{1,4}[)]?[0-9-\s\.]+$/;
     inputNombre.addEventListener('blur',function(){
         switch(true){
             case this.value.length === 0:
@@ -16,6 +16,7 @@ window.addEventListener('DOMContentLoaded',()=>{
                 this.classList.add('is-invalid');
                 break;
             default:
+                errorNombre.innerHTML =" ";
                 this.classList.remove('is-invalid');
                 this.classList.add('is-valid');
                 break;
@@ -30,7 +31,9 @@ window.addEventListener('DOMContentLoaded',()=>{
             case !regExEmail.test(this.value):
                 errorEmail.innerHTML = "El email debe ser valido.";
                 this.classList.add('is-invalid');
+                break;
             default:
+                errorEmail.innerHTML =" ";
                 this.classList.remove('is-invalid');
                 this.classList.add('is-valid');
                 break;
@@ -42,10 +45,12 @@ window.addEventListener('DOMContentLoaded',()=>{
                 errorNumero.innerHTML = "Debe ingresar su número de telefono"
                 this.classList.add('is-invalid');
                 break;
-            case this.value.length >8:
-                errorNumero.innerHTML = "Debe ingresar 8 digitos";
+            case !regExNumero.test(this.value):
+                errorNumero.innerHTML = "Debe ingresar un numero válido.";
                 this.classList.add('is-invalid');
+                break;
             default:
+                errorNumero.innerHTML =" ";
                 this.classList.remove('is-invalid');
                 this.classList.add('is-valid');
                 break;
@@ -64,23 +69,21 @@ window.addEventListener('DOMContentLoaded',()=>{
         }
         if(elementos[0].value.length <4){
             error = true;
-            errorNombre.innerHTML = "Tenes que llenar este campo.";
+           
             this.classList.add('is-invalid');
         }
-        if(elementos[1].value.length <1){
+        if(elementos[1].value.length === 0){
             error = true;
-            errorNombre.innerHTML = "Tenes que llenar este campo.";
             this.classList.add('is-invalid');
         }
-        if(elementos[3].value.length != 8){
+        if(elementos[2].value.length === 0){
             error = true;
-            errorNombre.innerHTML = "Tenes que llenar este campo.";
             this.classList.add('is-invalid');
         }
         if(!error){
             errorSubmit.innerHTML =" ";
             Swal.fire({
-                position: 'top-end',
+                position: 'top-center',
                 icon: 'success',
                 title: 'Tu mensaje ha sido enviado.',
                 showConfirmButton: false,
@@ -88,6 +91,12 @@ window.addEventListener('DOMContentLoaded',()=>{
             }).then(() => {
                 formulario.submit();
                 })
+            .then(() => {
+                return res.redirect('/pepe')
+            })
+            .catch(error => {
+                res.send(error)
+            })
         }else{
             errorSubmit.innerHTML = "Los campos señalados son obligatorios."
         }

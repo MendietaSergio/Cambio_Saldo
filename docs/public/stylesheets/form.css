@@ -25,6 +25,10 @@ span{
 div .header-titulo{
     font-size: 5rem;
 }
+div .usuario{
+    position: relative;
+    left: 440px;
+}
 div.header{
     background-color: cadetblue;
     grid-area: header;

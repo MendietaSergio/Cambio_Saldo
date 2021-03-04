@@ -1,4 +1,6 @@
 const db = require('../database/models');
+const {validationResult} = require('express-validator');
+
 
 module.exports = {
     home: (req, res) => {
@@ -24,5 +26,24 @@ module.exports = {
             css:'form.css',
             script: 'contactValidation.js'
         })
+    },
+    processForm: (req,res) =>{
+        let errors  = validationResult(req);
+        if(errors.isEmpty()){
+            return res.redirect('/')   
+        } else {
+            db.MediosDePagos.findAll()
+            .then(medios => {
+                res.render('index', {
+                    title: "Saldo",
+                    css: 'index.css',
+                    mediosdepago: medios,
+                    script:"contactValidacion.js"
+                })
+            })
+            .catch(error =>{
+                res.send(error)
+            })
+        }
     }
 }
