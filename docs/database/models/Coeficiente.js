@@ -29,9 +29,17 @@ module.exports = (sequelize, dataTypes) =>{
     const Coeficiente = sequelize.define(alias,cols,config);
 /*
     Coeficiente.associate = function(models){
+        Coeficiente.hasMany(models.MedioDePago,{
+            as:"coeficiente",
+            foreingKey : "mediosdepagos1"
+        })/*
         Coeficiente.belongsTo(models.MediosDePago,{
-            as:"mediosdepago",
-            foreingKey : "coeficiente"
+            as:"mediosdepago1",
+            foreingKey : "mediosdepagos1"
+        })
+        Coeficiente.belongsTo(models.MediosDePago,{
+            as:"mediosdepago2",
+            foreingKey : "mediosdepagos2"
         })
     }*/
     return Coeficiente;

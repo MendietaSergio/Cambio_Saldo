@@ -4,18 +4,23 @@ const {validationResult} = require('express-validator');
 
 module.exports = {
     home: (req, res) => {
-        db.MediosDePagos.findAll()
-            .then(medios => {
-                res.render('index', {
-                    title: "Saldo",
-                    css: 'index.css',
-                    mediosdepago: medios,
-                    script:"indexEcuacion.js"
-                })
+
+       let pagos = db.MediosDePagos.findAll();
+       let dato = db.Coeficientes.findAll()
+       Promise.all([pagos, dato])
+        .then(([pagos,dato]) => {
+            res.render('index', {
+                title: "Saldo",
+                css: 'index.css',
+                mediosdepago: pagos,
+                coefiente: dato,
+                script:"indexEcuacion.js"
             })
-            .catch(error =>{
-                res.send(error)
-            })
+        })
+        .catch(error =>{
+            res.send(error)
+        })
+            
     },
     processHome:(req,res) =>{
 
