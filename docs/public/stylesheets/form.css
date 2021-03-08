@@ -1,5 +1,6 @@
 @import "general.css";
 @import "footer.css";
+@import "header.css";
 div.contenedor{
     width: 100%;
     display: grid;
@@ -8,33 +9,11 @@ div.contenedor{
                         "form form form form"
                         "footer footer footer footer";
 }
-span{
-    font-weight: bold;
-    top: -18px;
-    position: relative;
-}
-div .header-titulo{
-    font-size: 5rem;
-}
-div .usuario{
-    position: relative;
-    left: 440px;
-}
-div.header{
-    background-color: rgba(41, 48, 57,0.8);
-    grid-area: header;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    color: green;
-    margin-bottom: 80px;
-}
+
 div .caja-formulario{
     margin: 10px;
     grid-area: form;
-    height: 600px;
+    height: 763px;
     margin-top: 15px;
 }
 form{
@@ -72,4 +51,9 @@ input{
 #boton:hover{
     background-color: rgba(65, 105, 255, .4);
     cursor: pointer;
+}
+span{
+    font-weight: bold;
+    top: -18px;
+    position: relative;
 }

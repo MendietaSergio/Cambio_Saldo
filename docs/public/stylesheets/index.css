@@ -1,5 +1,6 @@
 @import "general.css";
 @import "footer.css";
+@import "header.css";
 div.contenedor{
   width: 100%;
   display: grid;
@@ -8,24 +9,6 @@ div.contenedor{
                       "caja-cambio caja-cambio caja-info caja-info"
                       "mas-info mas-info mas-info mas-info" 
                       "footer footer footer footer";
-}
-div .header-titulo{
-  font-size: 5rem;
-}
-div .usuario{
-  position: relative;
-  left: 440px;
-}
-div.header{
-  background-color: rgba(41, 48, 57,0.8);/*nuevo*/
-  grid-area: header;
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  color: green;
-  margin-bottom: 80px;
 }
 div.caja-cambio{
   grid-area: caja-cambio;

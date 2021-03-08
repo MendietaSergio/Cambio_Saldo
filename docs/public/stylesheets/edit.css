@@ -1,28 +1,12 @@
 @import "general.css";
 @import "footer.css";
+@import "header.css";
 div.contenedor{
     width: 100%;
     grid-template-columns: repeat(4,1fr);
     grid-template-areas: "header header header header"
                         "caja-cambio caja-cambio caja-cambio caja-cambio"
                         "footer footer footer footer";
-}
-div .header-titulo{
-    font-size: 5rem;
-}
-div .usuario{
-    position: relative;
-    left: 440px;
-}
-div.header{
-    background-color: rgba(41, 48, 57,0.8);
-    grid-area: header;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    color: green;
 }
 div.caja-cambio{
     padding: 50px;
