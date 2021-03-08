@@ -1,16 +1,7 @@
-body{
-    margin: 0;
-    background-position: center center;
-    /* Para que la imagen de fondo no se repita */
-    background-repeat: no-repeat;
-    /* La imagen se fija en la ventana de visualización para que la altura de la imagen no supere a la del contenido */
-    background-attachment: fixed;
-    /* La imagen de fondo se reescala automáticamente con el cambio del ancho de ventana del navegador */
-    background-size: cover;
-}
+@import "general.css";
+@import "footer.css";
 div.contenedor{
     width: 100%;
-    background-color: #302070;
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-template-areas: "header header header header"
@@ -30,7 +21,7 @@ div .usuario{
     left: 440px;
 }
 div.header{
-    background-color: cadetblue;
+    background-color: rgba(41, 48, 57,0.8);
     grid-area: header;
     height: 150px;
     display: flex;
@@ -38,40 +29,34 @@ div.header{
     align-items: center;
     font-weight: bold;
     color: green;
+    margin-bottom: 80px;
 }
-div .caja-form{
+div .caja-formulario{
     margin: 10px;
     grid-area: form;
+    height: 600px;
+    margin-top: 15px;
 }
 form{
     width: 35%;
     margin: auto;
-    background-color: #00cc99;
+    background-color: rgba(41, 48, 57,0.8);
     padding: 10px 20px;
     /*colocando esto hace que tome los 40px del padding en los 450px de ancho*/
     box-sizing: border-box;
     border-radius: 4px;    
 }
-div .footer{
-    background-color: cadetblue;
-    height: 30px;
-    grid-area: footer;
-}
-.footer span{
-    display: flex;
-    justify-content: center;
-    position: relative;
-    top: 6px;
-}
 form:hover{
-    box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
+    box-shadow: 2px 2px 5px 1px rgba(177, 177, 177, 0.9);
 }
-h2{
+div .titulo-form{
     color: #fff;
     text-align: center;
     margin: 0;
     font-size: 30px;
     margin-bottom: 20px;
+    text-decoration: underline 5px;
+    text-decoration-color: green;
 }
 input{
     width: 100%;

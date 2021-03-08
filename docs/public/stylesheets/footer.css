@@ -1,0 +1,12 @@
+div .footer{
+    background-color: rgb(41,48,57);
+    height: 37px;
+    grid-area: footer;
+  }
+  .footer span{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 6px;
+    color: #fff;
+}

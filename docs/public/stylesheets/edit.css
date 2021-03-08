@@ -1,16 +1,7 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
-    background-color: #302070;
-    font-family: 'Roboto Slab', serif;
-}
+@import "general.css";
+@import "footer.css";
 div.contenedor{
     width: 100%;
-    background-color: rgb(255, 255, 255);
-    
     grid-template-columns: repeat(4,1fr);
     grid-template-areas: "header header header header"
                         "caja-cambio caja-cambio caja-cambio caja-cambio"
@@ -24,7 +15,7 @@ div .usuario{
     left: 440px;
 }
 div.header{
-    background-color: cadetblue;
+    background-color: rgba(41, 48, 57,0.8);
     grid-area: header;
     height: 150px;
     display: flex;
@@ -35,9 +26,8 @@ div.header{
 }
 div.caja-cambio{
     padding: 50px;
-    background-color: chocolate;
     grid-area: caja-cambio;
-    height: auto;
+    height: 635px;
     margin: 30px;
 }
 div.caja-cambio form{
@@ -47,6 +37,7 @@ form{
     width: 40%;
     margin: auto;
     padding: 10px 20px;
+    background-color: rgba(41, 48, 57,0.8);
     /*colocando esto hace que tome los 40px del padding en los 450px de ancho*/
     box-sizing: border-box;
     border-radius: 4px;    
@@ -69,24 +60,18 @@ div .btn{
     height: 40px;
     width: 49%;
 }
-h2{
+div .titulo-edit{
     color: #fff;
     text-align: center;
     margin: 0;
     font-size: 30px;
     margin-bottom: 20px;
+    text-decoration: underline 5px;
+    text-decoration-color: green;
 }
-div .footer{
-    grid-area: footer;
-    background-color: cadetblue;
-    height: 30px;    
-}
-.footer span{
-    display: flex;
-    justify-content: center;
-    position: relative;
-    top: 6px;
+div .valor{
+    color: #fff;
 }
 form:hover{
-    box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
+    box-shadow: 2px 2px 5px 1px rgba(177, 177, 177, 0.9);
 }

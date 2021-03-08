@@ -1,19 +1,12 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  background-color: #302070;
-  font-family: 'Roboto Slab', serif;
-}
+@import "general.css";
+@import "footer.css";
 div.contenedor{
   width: 100%;
-  background-color: rgb(255, 255, 255);
   display: grid;
   grid-template-columns: repeat(4,1fr);
   grid-template-areas: "header header header header"
                       "caja-cambio caja-cambio caja-info caja-info"
+                      "mas-info mas-info mas-info mas-info" 
                       "footer footer footer footer";
 }
 div .header-titulo{
@@ -24,7 +17,7 @@ div .usuario{
   left: 440px;
 }
 div.header{
-  background-color: cadetblue;
+  background-color: rgba(41, 48, 57,0.8);/*nuevo*/
   grid-area: header;
   height: 150px;
   display: flex;
@@ -32,15 +25,16 @@ div.header{
   align-items: center;
   font-weight: bold;
   color: green;
+  margin-bottom: 80px;
 }
 div.caja-cambio{
-  background-color: chocolate;
   grid-area: caja-cambio;
   height: 300px;
   margin: 30px;
 }
 div.caja-cambio form{
   padding: 20px;
+  background-color: rgba(41, 48, 57,0.8);
 }
 div.caja-cambio .caja-input{
   width: 100%;
@@ -58,17 +52,20 @@ div .btn{
 }
 
 div.caja-info{
-  background-color: crimson;
+  background-color: rgba(41, 48, 57,0.8);
   grid-area: caja-info;
-  height: 300px;
+  height: 310px;
   margin:30px;
 }
 div .info-compra{
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
   margin-top: 30px;
+  text-decoration: underline 11px;
+  text-decoration-color: green;
 }
 div ol{
   margin: 20px;
@@ -76,20 +73,17 @@ div ol{
   margin-top: 10px;
 }
 div li{
+  color: #fff;
   padding: 20px;
+  font-size: 18px;
+  text-decoration: underline 3px;
+  text-decoration-color: green;
 }
 li::marker{
   font-weight: 900;
-  color: blue;
+  color: #fff;
 }
-div .footer{
-  background-color: cadetblue;
-  height: 30px;
-  grid-area: footer;
-}
-.footer span{
-  display: flex;
-  justify-content: center;
-  position: relative;
-  top: 6px;
+div .mas-info{
+  height: 350px;
+  grid-area: mas-info;
 }

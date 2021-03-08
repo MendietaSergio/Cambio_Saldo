@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background-color: #302070;
+    font-family: 'Roboto Slab', serif;
+    /*background-image: url('../img/dolar-bitcoin.jpeg');*/
+    /*nuevo*/
+    background: url('../img/dolar-bitcoin.jpeg') no-repeat center center fixed; 
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
