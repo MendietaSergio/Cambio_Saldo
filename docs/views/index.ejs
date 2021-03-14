@@ -6,23 +6,21 @@
     <div class="caja-cambio">
       <form action="/formulario" method="POST">
         <div class="caja-input">
-          <input id="entrada" type="number" value="100">
-          <select name="select1">
-            <option value="">Tipo de cambio</option>
-            <% mediosdepago.forEach(medio=>{%>
-              <option id="primero" value="<%-medio.id%>">
-                <%-medio.nombre%>
+          <input id="numEntrada" name="numEntrada" type="number">
+          <select id="origen" name="origen">
+            <% pagos.forEach(dato=>{%>
+              <option value="<%-dato.id%>">
+                <%-dato.nombre%>
               </option>
               <%}) %>
           </select>
         </div>
         <div class="caja-input">
-          <input id="salida" type="number">
-          <select name="select2">
-            <option value="">Cotizar a </option>
-            <% mediosdepago.forEach(medio=>{%>
-              <option value="<%-medio.id%>">
-                <%-medio.nombre%>
+          <input id="numSalida" name="numSalida" type="number">
+          <select id="destino" name="destino">
+            <% pagos.forEach(dato=>{%>
+              <option value="<%-dato.id%>">
+                <%-dato.nombre%>
               </option>
               <%}) %>
           </select>
@@ -31,6 +29,7 @@
           <button type="submit" class="btn btn-success">Siguiente</button>
         </div>
       </form>
+      <span class="text-danger" id="msgError"></span>
     </div>
     <div class="caja-info">
       <h3 class="info-compra">Comprá en 3 sencillos pasos</h3>

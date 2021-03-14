@@ -18,15 +18,8 @@ module.exports = (sequelize, dataTypes) => {
         tableName: "mediosdepagos",
         timestamps: false
     }
-
+    
     const MediosDePago = sequelize.define(alias,cols,config);
-/*
-    MediosDePago.associate = function(models){
-        MediosDePago.hasMany(models.Coeficiente,{
-            as:"coeficiente",
-            foreingKey : "id"
-        })
-    }*/
 
     return MediosDePago;
 }
