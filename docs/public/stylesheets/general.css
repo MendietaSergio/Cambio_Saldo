@@ -14,7 +14,7 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 920px
+  height: 920px;
 }
 a{
   text-decoration: none;
@@ -23,11 +23,14 @@ a{
 a:hover{
   color: #fff;
 }
-
+div .title-usuario{
+  font-size: x-large;
+  color: white;
+}
 div .dropdown{
-  position: relative;
-  left: 350px;
-  display: inline-block;
+  float: right;
+  padding-right: 140px;
+  bottom: 85px;
   cursor: pointer;
 }
 div .dropdown-contenido{
@@ -47,6 +50,7 @@ div.header{
   /*background-color: rgba(41, 48, 57,0.8);/*nuevo*/
   grid-area: header;
   height: 150px;
+  
   margin-bottom: 80px;
 }
 div.header img{

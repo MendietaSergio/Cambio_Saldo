@@ -2,20 +2,26 @@
     <div class="header">
         <header>
             <!--HACER QUE CAMBIE EL TITULO "SALDO/INTERCAMBIO/VENDER"-->
-            <img src="/img/Logo.png" alt="Logo">
+            <div>
+                <img src="/img/Logo.png" alt="Logo">
+            </div>
+            <div>
+                <% if (typeof user !="undefined" ) { %>
+                        <div class="dropdown">
+                            <span class="title-usuario"><%= locals.user.nick %></span>
+                            <div class="dropdown-contenido">
+                                <a href="/admin/edit">Editar valores</a>
+                                <br>
+                                <a href="/admin/logout">Salir</a>
+                            </div>
+                        </div>
+                    <% } else{%>
+                        <span>invitado</span>
+                        <% } %> 
+            </div>
+                    
+               
         </header>
         <!---->
-        <div class="menuUsuario">
-            <div class="usuario">
-                <% if (typeof user !="undefined" ) { %>
-                    <div class="dropdown">
-                        <span><%= locals.user.nick %></span>
-                        <div class="dropdown-contenido">
-                            <a href="/admin/edit">Editar valores</a>
-                            <a href="/admin/logout">Salir</a>
-                        </div>
-                    </div>
-                <% } %> 
-            </div>
-        </div>
+        
     </div>
