@@ -59,5 +59,9 @@ module.exports = {
     },
     processEdit:(req,res)=>{
 
+    },
+    logout:(req,res)=>{
+        req.session.destroy()
+        return res.redirect('/');
     }
 }

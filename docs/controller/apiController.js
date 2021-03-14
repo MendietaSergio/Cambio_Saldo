@@ -6,7 +6,8 @@ const round = (numero) =>{
         return Number.parseFloat(numero).toFixed(2);
     }
 }
-
+/*SOUCIONAR EL PROBLEMA QUE AL CAMBIAR EL VALOR DEL INPUT 2
+DA UN MAL RESULTADO EN EL INPUT 1 */
 module.exports = {
     getValorEntrada:(req,res) =>{
         const {numEntrada, origen,destino} = req.body;

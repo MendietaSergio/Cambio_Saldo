@@ -17,7 +17,7 @@ div.caja-cambio{
 }
 div.caja-cambio form{
   padding: 20px;
-  background-color: rgba(41, 48, 57,0.8);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 div.caja-cambio .caja-input{
   width: 100%;
@@ -35,20 +35,18 @@ div .btn{
 }
 
 div.caja-info{
-  background-color: rgba(41, 48, 57,0.8);
+  background-color: rgba(255, 255, 255, 0.8) ;
   grid-area: caja-info;
   height: 310px;
   margin:30px;
 }
 div .info-compra{
-  color: #fff;
+  color: rgb(0, 0, 0);
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
   margin-top: 30px;
-  text-decoration: underline 11px;
-  text-decoration-color: green;
 }
 div ol{
   margin: 20px;
@@ -56,15 +54,13 @@ div ol{
   margin-top: 10px;
 }
 div li{
-  color: #fff;
+  color: rgb(0, 0, 0);
   padding: 20px;
   font-size: 18px;
-  text-decoration: underline 3px;
-  text-decoration-color: green;
 }
 li::marker{
   font-weight: 900;
-  color: #fff;
+  color: rgb(0, 0, 0);
 }
 div .mas-info{
   height: 350px;

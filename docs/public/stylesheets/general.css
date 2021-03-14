@@ -18,15 +18,12 @@ body {
 }
 a{
   text-decoration: none;
-  color: green;
+  color: #fff;
 }
 a:hover{
-  color: green;
+  color: #fff;
 }
 
-div .header-titulo{
-  font-size: 5rem;
-}
 div .dropdown{
   position: relative;
   left: 350px;
@@ -36,7 +33,7 @@ div .dropdown{
 div .dropdown-contenido{
   display: none;
   position: absolute;
-  background-color: rgba(41, 48, 57,0.8);
+  background-color: #2d8259;
   min-width: 140px;
   padding: 12px 16px;
   z-index: 1;
@@ -46,13 +43,14 @@ div .dropdown:hover .dropdown-contenido{
   display: block;
 }
 div.header{
-  background-color: rgba(41, 48, 57,0.8);/*nuevo*/
+  background-color:rgb(43, 128, 87);
+  /*background-color: rgba(41, 48, 57,0.8);/*nuevo*/
   grid-area: header;
   height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  color: green;
   margin-bottom: 80px;
+}
+div.header img{
+  height: 150px;
+  width: 35%;
+  margin: auto;
 }
