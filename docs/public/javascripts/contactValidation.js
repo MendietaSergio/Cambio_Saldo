@@ -5,6 +5,13 @@ window.addEventListener('DOMContentLoaded',()=>{
     let inputNombre = formulario.elements[0];
     let inputEmail = formulario.elements[1];
     let inputNumero = formulario.elements[2];
+    let inputAdicional = formulario.elements[3];
+    const destino = document.querySelector('#destino');
+
+    destino.addEventListener('change', () =>{
+        /*HACER QUE MUESTRE EL INPUT ADICIONAL EN BASE AL DESTINO SELECCIONADO. */
+        console.log(destino.opcion);
+    })
 
     // EXPRESION REGULAR, CONDICION PARA VALIDAR EMAIL
     let regExEmail =  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;

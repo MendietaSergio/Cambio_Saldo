@@ -38,6 +38,9 @@ div .caja-formulario #accept{
 div .caja-formulario small{
     color: #fff;
 }
+div .caja-formulario #adicional{
+    display: none;
+}
 div .caja-formulario #boton{
     background-color: royalblue;
     color: #fff;

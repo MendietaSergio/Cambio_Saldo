@@ -73,8 +73,10 @@ window.addEventListener("load", () => {
         igualdad(origen.value, destino.value)
     })
     destino.addEventListener("change", () => {
-        getValorSalida(numSalida.value, origen.value, destino.value)
-        igualdad(origen.value, destino.value)
+        getValorSalida(numSalida.value, origen.value, destino.value);
+        igualdad(origen.value, destino.value);
+        inputAdicional();
+
     })
     $('#numSalida').addEventListener('input', () => {
         getValorSalida(numSalida.value, origen.value, destino.value)
@@ -86,7 +88,7 @@ window.addEventListener("load", () => {
             btn.style.color="#4e4e4e";
             btn.type="button"
         } else {
-            msgError.innerHTML = " "
+            msgError.innerHTML = " ";
             btn.style.backgroundColor="#157347";
             btn.style.color="#fff";
             btn.type="submit"
