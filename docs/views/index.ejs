@@ -4,9 +4,9 @@
 <%- include('./partials/header.ejs')%>
 
     <div class="caja-cambio">
-      <form action="/formulario" method="POST">
+      <form action="#formulario" method="POST">
         <div class="caja-input">
-          <input id="numEntrada" name="numEntrada" type="number">
+          <input id="numEntrada" name="numEntrada" type="number" min="100" step=".01">
           <select id="origen" name="origen">
             <% pagos.forEach(dato=>{%>
               <option value="<%-dato.id%>">
@@ -16,7 +16,7 @@
           </select>
         </div>
         <div class="caja-input">
-          <input id="numSalida" name="numSalida" type="number">
+          <input id="numSalida" name="numSalida" type="number" min="90" step=".01">
           <select id="destino" name="destino">
             <% pagos.forEach(dato=>{%>
               <option value="<%-dato.id%>">
@@ -26,13 +26,15 @@
           </select>
         </div>
         <div class="caja-input">
-          <button type="submit" class="btn btn-success" >Siguiente</button>
+          <button id="hide" type="button" class="btn btn-success" >Siguiente</button>
         </div>
         <span class="text-danger" id="msgError"></span>
       </form>
       
     </div>
-    <div class="caja-info">
+    <%- include('./form.ejs') %>
+    <div id="caja-info" class="caja-info">      
+
       <h3 class="info-compra">Comprá en 3 sencillos pasos</h3>
       <ol>
         <li>Cotizá tu pedido</li>
@@ -43,4 +45,8 @@
     <div class="mas-info">
 
     </div>
+    <script src="../javascripts/JQueryForm.js"></script>
+    <script src="/javascripts/<%=scriptForm%>"></script>
+
+    
 <%- include('./partials/footer.ejs') %>

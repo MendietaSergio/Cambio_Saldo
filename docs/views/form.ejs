@@ -1,9 +1,6 @@
-<!--HEAD MODULARIZADO-->
-<%- include('./partials/head.ejs')%>
-    <!--HEADER MODULARIZADO-->
-    <%- include('./partials/header.ejs')%>
-        <div class="caja-formulario">
-            <form action="" method="POST">
+
+        <div id="caja-formulario" class="caja-formulario">
+            <form id="formulario" action="" method="POST">
                 <div class="caja-form">
                     <h2 class="titulo-form">¡Llena tu formulario para hacer tu pedido!</h2>
                     <input type="text" name="name" id="name" class="form-control" placeholder="Nombre y apellido">
@@ -16,9 +13,10 @@
                         placeholder="Número de Whatsapp">
                     <span class="text-danger" id="errorNumero"></span>
 
+                    <input type="checkbox" name="accept" id="accept"><small> Acepto enviar documentación que acredite mi identidad si me es requerido.</small>
+                    
                     <input type="submit" class="btn btn-primary" value="Hace tu pedido" id="boton"></input>
                     <span class="text-danger" id="errorSubmit"></span>
                 </div>
             </form>
         </div>
-        <%- include('./partials/footer.ejs') %>

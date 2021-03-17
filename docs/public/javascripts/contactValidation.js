@@ -1,7 +1,7 @@
 console.log("Vinculado");
 window.addEventListener('DOMContentLoaded',()=>{
     console.log("vinculado?");
-    const formulario = document.querySelector('form');
+    const formulario = document.querySelector('#formulario');
     let inputNombre = formulario.elements[0];
     let inputEmail = formulario.elements[1];
     let inputNumero = formulario.elements[2];

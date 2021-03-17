@@ -14,5 +14,5 @@ router.post('/',loginValidation, userController.processLogin);
 router.get('/edit',userController.edit);
 router.post('/edit',userController.processEdit);
 
-router.get('/admin/logout',userController.logout);
+router.get('/logout',userController.logout);
 module.exports = router;

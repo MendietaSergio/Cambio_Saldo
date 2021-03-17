@@ -1,23 +1,12 @@
-@import "general.css";
-@import "footer.css";
-@import "header.css";
-div.contenedor{
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-template-areas: "header header header header"
-                        "form form form form"
-                        "footer footer footer footer";
-}
 
 div .caja-formulario{
-    margin: 10px;
+    display: none;
     grid-area: form;
-    height: 763px;
+    height: auto;
     margin-top: 15px;
 }
-form{
-    width: 35%;
+div .caja-formulario form{
+    width: 100%;
     margin: auto;
     background-color: rgba(41, 48, 57,0.8);
     padding: 10px 20px;
@@ -25,25 +14,31 @@ form{
     box-sizing: border-box;
     border-radius: 4px;    
 }
-form:hover{
+div .caja-formulario form:hover{
     box-shadow: 2px 2px 5px 1px rgba(177, 177, 177, 0.9);
 }
 div .titulo-form{
     color: #fff;
     text-align: center;
-    margin: 0;
-    font-size: 30px;
-    margin-bottom: 20px;
+    margin: 34px;
+    font-size: 25px;
     text-decoration: underline 5px;
     text-decoration-color: green;
 }
-input{
+div .caja-formulario input{
     width: 100%;
-    margin-bottom: 20px;
-    padding: 7px;
-    box-sizing: border-box;
+    margin-bottom: 40px;
+    padding: 10px;
 }
-#boton{
+div .caja-formulario #accept{
+    width: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+div .caja-formulario small{
+    color: #fff;
+}
+div .caja-formulario #boton{
     background-color: royalblue;
     color: #fff;
     border-color: rgb(73, 63, 211);
@@ -52,7 +47,7 @@ input{
     background-color: rgba(65, 105, 255, .4);
     cursor: pointer;
 }
-span{
+div .caja-formulario span{
     font-weight: bold;
     top: -18px;
     position: relative;

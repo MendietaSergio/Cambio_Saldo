@@ -1,9 +1,12 @@
 const db = require('../database/models');
 
-const round = (numero) =>{
+const round = (numero, decimales =2) =>{
+    numeroRegexp = new RegExp('\\d\\.(\\d){' + decimales + ',}');
 
-    if(numero>0){        
-        return Number.parseFloat(numero).toFixed(2);
+    if (numeroRegexp.test(numero)) {
+        return Number(numero.toFixed(decimales));
+    } else {
+        return Number(numero.toFixed(decimales)) === 0 ? 0 : numero;
     }
 }
 /*SOUCIONAR EL PROBLEMA QUE AL CAMBIAR EL VALOR DEL INPUT 2
@@ -22,7 +25,6 @@ module.exports = {
             .then(result =>{
                 let comision = (numEntrada * result.coeficiente) / 100;
                 let numSalida = round(numEntrada - comision);
-                console.log(numSalida);
                 res.json({
                     numSalida
                 })
@@ -37,9 +39,8 @@ module.exports = {
             }
         })
             .then(result =>{
-                let comision = (numSalida * result.coeficiente) / 100;
-                let numEntrada = round (numSalida + comision);
-                console.log(numEntrada);
+                let porcentaje = 100 - result.coeficiente;
+                let numEntrada =  round(100 * numSalida / porcentaje);
                 res.json({
                     numEntrada
                 })

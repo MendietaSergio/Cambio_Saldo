@@ -10,9 +10,8 @@ window.addEventListener("load", () => {
     const origen = $('#origen');
     const destino = $('#destino');
     const msgError = $('#msgError');
-    const btn = $('.btn-success');
 
-    // console.log(numEntrada.value);
+    
     const getValor = (numEntrada, origen, destino) => {
 
         if ($('#numEntrada').value > 0 && origen != destino) {
@@ -35,22 +34,10 @@ window.addEventListener("load", () => {
                 })
         }    
     }
-    const igualdad = (origen, destino) => {
-        if (origen == destino) {
-            msgError.innerHTML = "Elija otro metodo."
-            btn.style.backgroundColor="black";
-            btn.style.color="#4e4e4e";
-            btn.type="button"
-        } else {
-            msgError.innerHTML = " "
-            btn.style.backgroundColor="#157347";
-            btn.style.color="#fff";
-            btn.type="submit"
-        }
-    }
     origen.addEventListener('change', () => {
         getValor(numEntrada.value, origen.value, destino.value)
         igualdad(origen.value, destino.value)
+        
     })
     destino.addEventListener("change", () => {
         getValor(numEntrada.value, origen.value, destino.value)
@@ -75,9 +62,9 @@ window.addEventListener("load", () => {
                 }
             })
                 .then(response => response.json())
-                .then(resultado => {
+                .then(result => {
                     console.log("entra a salida")
-                    numEntrada.value = resultado.numEntrada
+                    numEntrada.value = result.numEntrada
                 })
         }    
     }
@@ -92,4 +79,18 @@ window.addEventListener("load", () => {
     $('#numSalida').addEventListener('input', () => {
         getValorSalida(numSalida.value, origen.value, destino.value)
     })
+    const igualdad = (origen, destino) => {
+        if (origen == destino) {
+            msgError.innerHTML = "Elija otro metodo."
+            btn.style.backgroundColor="black";
+            btn.style.color="#4e4e4e";
+            btn.type="button"
+        } else {
+            msgError.innerHTML = " "
+            btn.style.backgroundColor="#157347";
+            btn.style.color="#fff";
+            btn.type="submit"
+        }
+    }
+    
 });

@@ -1,14 +1,25 @@
 @import "general.css";
 @import "footer.css";
 @import "header.css";
+@import "form.css";
 div.contenedor{
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4,1fr);
   grid-template-areas: "header header header header"
                       "caja-cambio caja-cambio caja-info caja-info"
-                      "mas-info mas-info mas-info mas-info" 
+                      "mas-info mas-info form form" 
                       "footer footer footer footer";
+}
+div.contenedor_form{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-areas: "header header form form"
+                       "caja-cambio caja-cambio form form"
+                       "caja-info caja-info form form"
+                       "mas-info mas-info mas-info mas-info"
+                       "footer footer footer footer";
 }
 div.caja-cambio{
   grid-area: caja-cambio;
@@ -22,13 +33,13 @@ div.caja-cambio form{
 div.caja-cambio .caja-input{
   width: 100%;
 }
-div input,select{
+div.caja-cambio input,select{
   font-weight: 900;
   text-align: end;
   height: 110px;
   width: 49%;
 }
-div .btn{
+div.caja-cambio .btn{
   margin-top: 10px;
   height: 40px;
   width: 99%;
@@ -64,5 +75,10 @@ li::marker{
 }
 div .mas-info{
   height: 350px;
+  margin: 30px;
   grid-area: mas-info;
+}
+div .valores{
+  height: 350px;
+  grid-area: valores;
 }
