@@ -1,12 +1,13 @@
 Dependencias:
 
-cookie-parser
-debug
-ejs
-express
-http-errors
-morgan
-sequelize
-nodemon
-mysql2
-sequelize
+Cookie-parser
+Debug
+Ejs
+Express
+Http-errors
+Morgan
+Sequelize
+Nodemon
+Mysql2
+Sequelize
+Method-override
