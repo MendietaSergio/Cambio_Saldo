@@ -1,16 +1,16 @@
 <!--HEAD MODULARIZADO-->
 <%- include('./partials/head.ejs')%>
-<!--HEADER MODULARIZADO-->
-<%- include('./partials/header.ejs')%>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <a href="https://api.whatsapp.com/send?phone=51955081075&text=%C2%A1Hola!%20Quer%C3%ADa%20saber%20m%C3%A1s%20informaci%C3%B3n%20para%20realizar%20la%20operaci%C3%B3n"
-    class="whatsapp" target="_blank">
-    <i class="fa fa-whatsapp my-float"></i>
-  </a>
+  <!--HEADER MODULARIZADO-->
+  <%- include('./partials/header.ejs')%>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <a href="https://api.whatsapp.com/send?phone=51955081075&text=%C2%A1Hola!%20Quer%C3%ADa%20saber%20m%C3%A1s%20informaci%C3%B3n%20para%20realizar%20la%20operaci%C3%B3n"
+      class="whatsapp" target="_blank">
+      <i class="fa fa-whatsapp my-float"></i>
+    </a>
     <div class="caja-cambio">
       <form action="#formulario" method="POST">
         <div class="caja-input">
-          <input id="numEntrada" name="numEntrada" type="number" min="100" step=".01">
+          <input id="numEntrada" name="numEntrada" value="1000" type="number" min="100" step=".01">
           <select id="origen" name="origen">
             <% pagos.forEach(dato=>{%>
               <option value="<%-dato.id%>">
@@ -23,34 +23,40 @@
           <input id="numSalida" name="numSalida" type="number" min="90" step=".01">
           <select id="destino" name="destino">
             <% pagos.forEach(dato=>{%>
-              <option value="<%-dato.id%>">
-                <%-dato.nombre%>
-              </option>
-              <%}) %>
+              <% if( dato.id != 13){ %>
+                <option  class="optionSalida" value="<%-dato.id%>">
+                  <%-dato.nombre%>
+                </option>
+                <% }else{ %>
+                  <option  selected class="optionSalida" value="<%-dato.id%>">
+                    <%-dato.nombre%>
+                  </option>
+                  <%} %>
+            <%}) %>
           </select>
         </div>
         <div class="caja-input">
-          <button id="hide" type="button" class="btn btn-success" >Siguiente</button>
+          <button id="hide" type="button" class="btn btn-success">Siguiente</button>
         </div>
         <span class="text-danger" id="msgError"></span>
       </form>
-      
+
     </div>
     <%- include('./form.ejs') %>
-    <div id="caja-info" class="caja-info">      
+      <div id="caja-info" class="caja-info">
 
-      <h3 class="info-compra">Comprá en 3 sencillos pasos</h3>
-      <ol>
-        <li>Cotizá tu pedido</li>
-        <li>Recibí las instrucciones en tu mail para hacer tu envío</li>
-        <li>Te enviamos el saldo cotizado</li>
-      </ol>
-    </div>
-    <div class="mas-info">
+        <h3 class="info-compra">Comprá en 3 sencillos pasos</h3>
+        <ol>
+          <li>Cotizá tu pedido</li>
+          <li>Recibí las instrucciones en tu mail para hacer tu envío</li>
+          <li>Te enviamos el saldo cotizado</li>
+        </ol>
+      </div>
+      <div class="mas-info">
 
-    </div>
-    <script src="../javascripts/JQueryForm.js"></script>
-    <script src="/javascripts/<%=scriptForm%>"></script>
+      </div>
+      <script src="../javascripts/JQueryForm.js"></script>
+      <script src="/javascripts/<%=scriptForm%>"></script>
 
-    
-<%- include('./partials/footer.ejs') %>
+
+      <%- include('./partials/footer.ejs') %>

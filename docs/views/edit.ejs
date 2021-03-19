@@ -2,38 +2,43 @@
     <%- include('./partials/header.ejs')%>
 
         <div class="caja-cambio">
-            <form action="#">
+            <form action="/admin/edit" method="post">
                 <h2 class="titulo-edit">Edita el valor</h2>
                 <div class="caja-input">
-                    <input id="entrada" type="number" value="100">
-                    <select name="select1">
-                        <option value="">Tipo de cambio</option>
+                    <select class="origen " name="origen" id="origen">
+                        <option value="0">Tipo de cambio</option>
                         <% mediosdepago.forEach(medio=>{%>
                             <option id="primero" value="<%-medio.id%>">
                                 <%-medio.nombre%>
                             </option>
                             <%}) %>
                     </select>
+                    <span class="text-danger" id="errorOrigen"></span>
                 </div>
                 <div class="caja-input">
-                    <input id="salida" type="number">
-                    <select name="select2">
-                        <option value="">Cotizar a </option>
+                    <select name="destino" id="destino">
+                        <option value="0">Cotizar a </option>
                         <% mediosdepago.forEach(medio=>{%>
                             <option value="<%-medio.id%>">
                                 <%-medio.nombre%>
                             </option>
                             <%}) %>
                     </select>
+                    <span class="text-danger" id="errorDestino" ></span>
+                </div>
+                <div>
+                    <span class="text-danger" id="errorIgualdad"></span>
                 </div>
                 <div class="caja-input">
-                    <label for="coeficiente" class="valor">Valor: </label>
-                    <input id="coeficiente">
+                    <label id="coeficiente" for="coeficiente" class="valor">Valor: </label>
+                    <input class="coeficiente" id="coeficiente" type="number" step=".01" placeholder="$ 0.00">
+                    <span class="text-danger" id="errorCoeficiente"></span>
                 </div>
                 <div class="caja-input">
                     <a href="/"><button type="button" class="btn btn-danger">Cancelar</button></a>
-                    <button type="submit" class="btn btn-success">Guardar</button>
+                    <button id="actualizar" type="button" class="btn btn-success">Actualizar</button>
                 </div>
+                <span class="text-danger" id="msgError"></span>
             </form>
         </div>
 

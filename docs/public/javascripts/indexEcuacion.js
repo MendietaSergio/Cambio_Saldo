@@ -1,4 +1,4 @@
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", () => {
 
     console.log('Vinculado indexEcuacion.js');
     const $ = (element) => {
@@ -10,6 +10,8 @@ window.addEventListener("load", () => {
     const origen = $('#origen');
     const destino = $('#destino');
     const msgError = $('#msgError');
+    const optionSalida = $('.optionSalida');
+
 
     
     const getValor = (numEntrada, origen, destino) => {
@@ -88,7 +90,7 @@ window.addEventListener("load", () => {
             btn.style.color="#4e4e4e";
             btn.type="button"
         } else {
-            msgError.innerHTML = " ";
+            msgError.innerHTML = " "
             btn.style.backgroundColor="#157347";
             btn.style.color="#fff";
             btn.type="submit"

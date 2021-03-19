@@ -50,7 +50,7 @@ module.exports = {
                     title: "Editar coeficiente",
                     css: 'edit.css',
                     mediosdepago: medios,
-                    script:"indexEcuacion.js"
+                    script:"apiEdit.js"
                 })
             })
             .catch(error =>{

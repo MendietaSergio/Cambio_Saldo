@@ -45,5 +45,22 @@ module.exports = {
                     numEntrada
                 })
             })
+    },
+    processEdit: (req,res)=>{
+        const {coeficiente, origen, destino} = req.body;
+        db.Coeficientes.update({
+            coeficiente:coeficiente
+        },{
+            where: {
+                mediosdepagos1:origen,
+                mediosdepagos2: destino
+            }
+        })
+            .then(medios =>{
+                console.log( req.body);
+            })
+            .catch(error =>{
+                res.send(error)
+            })
     }
 }
