@@ -11,7 +11,8 @@ module.exports = {
                 title: "Saldo",
                 css: 'index.css',
                 pagos: pagos,
-                script:"indexEcuacion.js",
+                script:"imgList.js",
+                JQueryForm:"JQueryForm.js",
                 scriptForm: "contactValidation.js"
             })
         })

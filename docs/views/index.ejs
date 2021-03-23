@@ -10,37 +10,65 @@
     <div class="caja-cambio">
       <form action="#formulario" method="POST">
         <div class="caja-input">
-          <input id="numEntrada" name="numEntrada" value="1000" type="number" min="100" step=".01">
-          <select id="origen" name="origen">
-            <% pagos.forEach(dato=>{%>
-              <option value="<%-dato.id%>">
-                <%-dato.nombre%>
-              </option>
-              <%}) %>
-          </select>
+          <div class="inputEntrada">
+            <input id="numEntrada" class="numEntrada" name="numEntrada" value="1000" type="number" step=".01">
+          </div>
+          <div class="selectCambioEntrada">
+            <div class="select" id="selectEntrada">
+              <div class="contenido-select-Entrada">
+                <img class="img-pagos" src="/img/img_medios_de_pagos/<%=pagos[0].image%>.png" alt="<%=pagos[0].nombre%>">
+                <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%=pagos[0].id%>"></h4>
+              </div>
+              <i class="fas fa-angle-down"></i>
+            </div>
+            <div class="opciones" id="opcionesEntrada">
+              <% pagos.forEach(dato=> { %>
+                <a href="#" class="opcionEntrada">
+                  <div class="contenido-opcion">
+                    <img src="/img/img_medios_de_pagos/<%-dato.image%>.png" alt="<%-dato.nombre%>">
+                    <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%- dato.id%>"></h4>
+                  </div>
+                </a>
+                <% }) %>
+            </div>
+          </div>
         </div>
         <div class="caja-input">
-          <input id="numSalida" name="numSalida" type="number" min="90" step=".01">
-          <select id="destino" name="destino">
-            <% pagos.forEach(dato=>{%>
-              <% if( dato.id != 13){ %>
-                <option  class="optionSalida" value="<%-dato.id%>">
-                  <%-dato.nombre%>
-                </option>
-                <% }else{ %>
-                  <option  selected class="optionSalida" value="<%-dato.id%>">
-                    <%-dato.nombre%>
-                  </option>
-                  <%} %>
-            <%}) %>
-          </select>
+          <div class="inputSalida">
+            <input id="numSalida" name="numSalida" type="number" step=".01">
+          </div>
+          <div class="selectCambioSalida">
+            <div class="select" id="selectSalida">
+              <div class="contenido-select-Salida">                
+                <img class="img-pagos" src="/img/img_medios_de_pagos/<%=pagos[2].image%>.png" alt="<%=pagos[2].nombre%>">
+                <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%=pagos[2].id%>"></h4>
+              </div>
+              <i class="fas fa-angle-down"></i>
+            </div>
+
+            <div class="opciones" id="opcionesSalida">
+              <% pagos.forEach(dato=> { %>
+                <a href="#" class="opcionSalida">
+                  <div class="contenido-opcion">
+                    <img src="/img/img_medios_de_pagos/<%-dato.image%>.png" alt="<%-dato.nombre%>">
+                    <h4 type="text" id="tituloDestino" class="idOcultado" data-id="<%- dato.id%>"></h4>
+                    </span>
+                  </div>
+                </a>
+                <% }) %>
+            </div>
+          </div>
         </div>
+        </script>
         <div class="caja-input">
-          <button id="hide" type="button" class="btn btn-success">Siguiente</button>
+          <div class="btnSiguiente">
+            <button id="hide" type="button" class="btn btn-success">Siguiente</button>
+          </div>
         </div>
+        <input type="hidden" name="origen" id="metodoOrigen" value="<%= pagos[0].id %> ">
+        <input type="hidden" name="destino" id="metodoDestino" value="<%= pagos[2].id %> ">
         <span class="text-danger" id="msgError"></span>
       </form>
-
     </div>
     <%- include('./form.ejs') %>
       <div id="caja-info" class="caja-info">
@@ -55,8 +83,9 @@
       <div class="mas-info">
 
       </div>
-      <script src="../javascripts/JQueryForm.js"></script>
+      
+
+      <script src="../javascripts/<%=JQueryForm %>"></script>
       <script src="/javascripts/<%=scriptForm%>"></script>
-
-
+      <script src="/javascripts/<%=script%>"></script>
       <%- include('./partials/footer.ejs') %>

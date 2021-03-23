@@ -5,26 +5,51 @@
             <form action="/admin/edit" method="post">
                 <h2 class="titulo-edit">Edita el valor</h2>
                 <div class="caja-input">
-                    <select class="origen " name="origen" id="origen">
-                        <option value="0">Tipo de cambio</option>
-                        <% mediosdepago.forEach(medio=>{%>
-                            <option id="primero" value="<%-medio.id%>">
-                                <%-medio.nombre%>
-                            </option>
-                            <%}) %>
-                    </select>
+                    <div class="selectCambioEntrada">
+                        <div class="select" id="selectEntrada">
+                            <div class="contenido-select-Entrada">
+                                <span id="envia">Envia</span>
+                                <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%=mediosdepago[0].id%>">
+                                </h4>
+                            </div>
+                            <i class="fas fa-angle-down"></i>
+                        </div>
+                        <div class="opciones" id="opcionesEntrada">
+                            <% mediosdepago.forEach(dato=> { %>
+                                <a href="#" class="opcionEntrada">
+                                    <div class="contenido-opcion">
+                                        <img src="/img/img_medios_de_pagos/<%-dato.image%>.png" alt="<%-dato.nombre%>">
+                                        <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%- dato.id%>">
+                                        </h4>
+                                    </div>
+                                </a>
+                                <% }) %>
+                        </div>
+                    </div>
                     <span class="text-danger" id="errorOrigen"></span>
                 </div>
                 <div class="caja-input">
-                    <select name="destino" id="destino">
-                        <option value="0">Cotizar a </option>
-                        <% mediosdepago.forEach(medio=>{%>
-                            <option value="<%-medio.id%>">
-                                <%-medio.nombre%>
-                            </option>
-                            <%}) %>
-                    </select>
-                    <span class="text-danger" id="errorDestino" ></span>
+                    <div class="selectCambioSalida">
+                        <div class="select" id="selectSalida">
+                          <div class="contenido-select-Salida">                
+                            <span id="recibe" >Recibe</span>
+                            <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%=mediosdepago[2].id%>">Ingrese</h4>
+                          </div>
+                          <i class="fas fa-angle-down"></i>
+                        </div>
+            
+                        <div class="opciones" id="opcionesSalida">
+                          <% mediosdepago.forEach(dato=> { %>
+                            <a href="#" class="opcionSalida">
+                              <div class="contenido-opcion">
+                                <img src="/img/img_medios_de_pagos/<%-dato.image%>.png" alt="<%-dato.nombre%>">
+                                <h4 type="text" id="tituloDestino" class="idOcultado" data-id="<%- dato.id%>"></h4>
+                                </span>
+                              </div>
+                            </a>
+                            <% }) %>
+                        </div>
+                    <span class="text-danger" id="errorDestino"></span>
                 </div>
                 <div>
                     <span class="text-danger" id="errorIgualdad"></span>
@@ -38,13 +63,12 @@
                     <a href="/"><button type="button" class="btn btn-danger">Cancelar</button></a>
                     <button id="actualizar" type="button" class="btn btn-success">Actualizar</button>
                 </div>
+                <input type="hidden" name="origen" id="metodoOrigen" value="<%= mediosdepago[0].id %> ">
+                <input type="hidden" name="destino" id="metodoDestino" value="<%= mediosdepago[2].id %> ">
                 <span class="text-danger" id="msgError"></span>
             </form>
         </div>
 
-
-
-
-
+        <script src="/javascripts/<%=apiEdit%>"></script>
 
         <%- include('./partials/footer.ejs')%>

@@ -10,10 +10,8 @@ module.exports = {
         })
     },
     processLogin:(req,res)=>{
-        
         let errors  = validationResult(req);
         console.log(errors.mapped());
-        //res.send(errors.mapped())
         if(errors.isEmpty()){
             db.Usuarios.findOne({
                 where:{
@@ -30,7 +28,6 @@ module.exports = {
                 return res.redirect('/')
             })
             .catch(error =>{
-                console.log("entra user>error");
                 res.send(error);
             })
         } else {
@@ -50,7 +47,7 @@ module.exports = {
                     title: "Editar coeficiente",
                     css: 'edit.css',
                     mediosdepago: medios,
-                    script:"apiEdit.js"
+                    apiEdit:"apiEdit.js"
                 })
             })
             .catch(error =>{

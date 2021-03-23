@@ -9,13 +9,10 @@ const round = (numero, decimales =2) =>{
         return Number(numero.toFixed(decimales)) === 0 ? 0 : numero;
     }
 }
-/*SOUCIONAR EL PROBLEMA QUE AL CAMBIAR EL VALOR DEL INPUT 2
-DA UN MAL RESULTADO EN EL INPUT 1 */
 module.exports = {
     getValorEntrada:(req,res) =>{
         const {numEntrada, origen,destino} = req.body;
-        //let origen = 1;
-        //let destino = 3;
+        console.log("getValorEntrada");
         db.Coeficientes.findOne({
             where: {
                 mediosdepagos1: origen,

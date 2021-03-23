@@ -1,16 +1,73 @@
+//VALIDACIONES, ACTUALIZACION DE COEFICIENTE LISTOS!
+
 window.addEventListener('DOMContentLoaded', () => {
     console.log("apiEdit vinculado");
     const $ = (element) => {
         return document.querySelector(element)
     }
 
-    const origen = $('#origen');
-    const destino = $('#destino');
-    const formulario = $('form');
+    const origen = document.querySelector("#metodoOrigen");
+    const destino = document.querySelector("#metodoDestino");
     const msgError = $('#msgError');
     const actualizar = $('#actualizar')
     const coeficiente = $('.coeficiente')
     const errorIgualdad = $('#errorIgualdad')
+    const envia = $('#envia');
+    const recibe = $('#recibe');
+
+    /********************************************************************************************************/
+
+    //LOGICA PARA MOSTRAR IMAGENES ENFORMA DE LISTA 'ENTRADA'
+    const selectEntrada = document.querySelector('#selectEntrada');
+    const opcionesEntrada = document.querySelector('#opcionesEntrada');
+    const contenidoSelectEntrada = document.querySelector('#selectEntrada .contenido-select-Entrada');
+
+    //HACER QUE CAMBIE DE VALOR AL INGRESAR EL INPUT
+    document.querySelectorAll('#opcionesEntrada > .opcionEntrada').forEach((opcion) => {
+        opcion.addEventListener('click', (e) => {
+            e.preventDefault();
+            contenidoSelectEntrada.innerHTML = e.currentTarget.innerHTML;
+            envia.style.display = "none";
+            selectEntrada.classList.toggle('active');
+            opcionesEntrada.classList.toggle('active');
+            origen.value = e.currentTarget.querySelector('#tituloOrigen').getAttribute('data-id');
+            console.log(origen.value);
+            igualdad(origen.value, destino.value, envia.textContent);
+        });
+    });
+
+    selectEntrada.addEventListener('click', () => {
+        selectEntrada.classList.toggle('active');
+        opcionesEntrada.classList.toggle('active');
+
+    });
+
+    /********************************************************************************************************/
+
+    //LOGICA PARA MOSTRAR IMAGENES EN FORMA DE LISTA 'SALIDA'
+    const selectSalida = document.querySelector('#selectSalida');
+    const opcionesSalida = document.querySelector('#opcionesSalida');
+    const contenidoSelectSalida = document.querySelector('#selectSalida .contenido-select-Salida');
+
+    document.querySelectorAll('#opcionesSalida > .opcionSalida').forEach((opcion) => {
+        opcion.addEventListener('click', (e) => {
+            e.preventDefault();
+            contenidoSelectSalida.innerHTML = e.currentTarget.innerHTML;
+            recibe.style.display = "none";
+            selectSalida.classList.toggle('active');
+            opcionesSalida.classList.toggle('active');
+            destino.value = e.currentTarget.querySelector('#tituloDestino').getAttribute('data-id');
+            igualdad(origen.value, destino.value, envia.textContent);
+            recibe.textContent = " recibe";
+        });
+    });
+
+    selectSalida.addEventListener('click', () => {
+        selectSalida.classList.toggle('active');
+        opcionesSalida.classList.toggle('active');
+    });
+
+    /********************************************************************************************************/
 
     const setUpdate = (coeficiente, origen, destino) => {
         if ($('.coeficiente').value > 0 && origen != destino) {
@@ -33,38 +90,6 @@ window.addEventListener('DOMContentLoaded', () => {
             console.log('no actualizado');
         }
     }
-    origen.addEventListener('change', () => {
-        igualdad(origen.value, destino.value);
-        switch (true) {
-            case origen.value == 0:
-                errorOrigen.innerHTML = "Debes seleccionar el medio de pago.";
-                origen.classList.add('errorSelector');
-                blockAcutualizar();
-                break;
-            default:
-                errorOrigen.innerHTML = " ";
-                origen.classList.remove('errorSelector');
-                origen.classList.add('validSelector');
-                disblockActualizar();
-                break;
-        }
-    })
-    destino.addEventListener("change", () => {
-        igualdad(origen.value, destino.value);
-        switch (true) {
-            case destino.value == 0:
-                errorDestino.innerHTML = "Debes seleccionar el medio de pago.";
-                destino.classList.add('errorSelector');
-                blockAcutualizar();
-                break;
-            default:
-                errorDestino.innerHTML = " ";
-                destino.classList.remove('errorSelector');
-                destino.classList.add('validSelector');
-                disblockActualizar();
-                break;
-        }
-    })
 
     coeficiente.addEventListener('keyup', function () {
         switch (true) {
@@ -106,12 +131,17 @@ window.addEventListener('DOMContentLoaded', () => {
                 break;
         }
     })
+
     const igualdad = (origen, destino) => {
         if (origen == destino) {
             errorIgualdad.innerHTML = "Elija otro método de pago.";
+            selectSalida.style.borderColor = 'red';
+            selectEntrada.style.borderColor = "red";
             blockAcutualizar();
         } else {
-            errorIgualdad.innerHTML = " "
+            errorIgualdad.innerHTML = " ";
+            selectSalida.style.borderColor = 'green';
+            selectEntrada.style.borderColor = "green";
             disblockActualizar();
         }
     }
@@ -124,25 +154,22 @@ window.addEventListener('DOMContentLoaded', () => {
         actualizar.style.backgroundColor = "#157347";
         actualizar.style.color = "#fff";
     }
+    //BOTON DE ACTUALIZAR, CON VALIDACIONES SI ESTA TODO CORRECTO
     actualizar.addEventListener('click', () => {
-        let elementos = formulario.elements;
         console.log(origen.value);
         let error = false;
-        if (origen.value == destino.value) {
-            console.log(origen);
-            console.log(destino.value);
-            origen.classList.add('errorSelector');
-            destino.classList.add('errorSelector');
+        if (envia.textContent == "Envia") {
+            selectEntrada.style.borderColor = "red";
             blockAcutualizar();
             error = true;
         }
-        if (origen.value == 0) {
-            origen.classList.add('errorSelector');
+        if (recibe.textContent == "Recibe") {
+            selectSalida.style.borderColor = "red";
             blockAcutualizar();
             error = true;
         }
-        if (destino.value == 0) {
-            destino.classList.add('errorSelector');
+        if (origen == destino) {
+            errorIgualdad.innerHTML = "Elija otro método de pago.";
             blockAcutualizar();
             error = true;
         }
@@ -164,6 +191,5 @@ window.addEventListener('DOMContentLoaded', () => {
         } else {
             msgError.innerHTML = " Los campos señalados son obligatorios."
         }
-
     })
 })

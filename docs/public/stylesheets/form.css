@@ -42,8 +42,8 @@ div .caja-formulario #adicional{
     display: none;
 }
 div .caja-formulario #boton{
-    background-color: royalblue;
-    color: #fff;
+    background-color: black;
+    color: rgb(78, 78, 78);
     border-color: rgb(73, 63, 211);
 }
 #boton:hover{
