@@ -1,7 +1,9 @@
 <div id="caja-formulario" class="caja-formulario">
-    <form id="formulario" action="" method="POST">
+    <form id="formulario" action="/" method="POST">
         <div class="caja-form">
-            <h2 class="titulo-form">¡Llena tu formulario para hacer tu pedido!</h2>
+            <div class="instrucciones">
+                <p class="formNumero">1</p><small class="titulo-form">¡Llena tu formulario para hacer tu pedido!</small>
+            </div>
             <input type="text" name="name" id="name" class="form-control" placeholder="Nombre y apellido">
             <span class="text-danger" id="errorNombre"></span>
 
@@ -11,14 +13,27 @@
             <input type="text" name="numero" id="numero" class="form-control" placeholder="Número de Whatsapp">
             <span class="text-danger" id="errorNumero"></span>
 
-            <input type="text" name="adicional" id="adicional" class="form-control">
+            <input type="text" name="adicional" id="campoAdicional1" class="form-control">
+            <span class="text-danger" id="errorAdicional1"></span>
+
+            <input type="text" name="adicional" id="campoAdicional2" class="form-control">
+            <span class="text-danger" id="errorAdicional2"></span>
+
             <br>
 
-                <input type="checkbox" name="accept" id="accept"><small> Acepto enviar documentación que acredite mi
-                    identidad si me es requerido.</small>
+            <input type="checkbox" name="accept" id="accept"><small> Acepto enviar documentación que acredite mi
+                identidad si me es requerido.</small>
 
             <input type="button" class="btn btn-primary" value="Hace tu pedido" id="boton"></input>
             <span class="text-danger" id="errorSubmit"></span>
+
+            <div class="instrucciones">
+                <p class="formNumero">2</p><small>Recibe en tu correo las instrucciones para enviar $ <small class="enviar"></small><small class="enviaAbreviatura"></small> por <small class="enviaNombre"></small>.</small>
+            </div>
+            <div class="instrucciones">
+                <p class="formNumero">3</p> <small>Te enviamos <small
+                        class="recibe"></small> <small class="recibeAbreviatura"></small> por <small class="recibeNombre"></small>.</small>
+            </div>
         </div>
     </form>
 </div>

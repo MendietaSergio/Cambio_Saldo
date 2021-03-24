@@ -11,7 +11,8 @@
       <form action="#formulario" method="POST">
         <div class="caja-input">
           <div class="inputEntrada">
-            <input id="numEntrada" class="numEntrada" name="numEntrada" value="1000" type="number" step=".01">
+            <input id="numEntrada" class="numEntrada" name="numEntrada" min="0.00" placeholder="$0.00" type="number"
+              step=".01">
           </div>
           <div class="selectCambioEntrada">
             <div class="select" id="selectEntrada">
@@ -36,30 +37,30 @@
         </div>
         <div class="caja-input">
           <div class="inputSalida">
-            <input id="numSalida" name="numSalida" type="number" step=".01">
+            <input id="numSalida" name="numSalida" type="number" min="0.00" placeholder="$0.00" step=".01">
           </div>
           <div class="selectCambioSalida">
             <div class="select" id="selectSalida">
               <div class="contenido-select-Salida">
-                <img class="img-pagos" src="/img/img_medios_de_pagos/<%=pagos[2].image%>.png"
-                  alt="<%=pagos[2].nombre%>">
-                <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%=pagos[2].id%>"></h4>
+                <img class="img-pagos" src="/img/img_medios_de_pagos/<%=pagos[12].image%>.png"
+                  alt="<%=pagos[12].nombre%>">
+                <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%=pagos[12].id%>"></h4>
               </div>
               <i class="fas fa-angle-down"></i>
             </div>
 
             <div class="opciones" id="opcionesSalida">
               <% pagos.forEach(dato=> { %>
-                <% if(  true ){%>
-                <a href="#" class="opcionSalida">
-                  <div class="contenido-opcion">
+                <% if( dato.id!=2 && dato.id !=3 ){%>
+                  <a href="#" class="opcionSalida">
+                    <div class="contenido-opcion">
                       <img src="/img/img_medios_de_pagos/<%-dato.image%>.png" alt="<%-dato.nombre%>">
                       <h4 type="text" id="tituloDestino" class="idOcultado" data-id="<%- dato.id%>"></h4>
                       </span>
-                      <%}%>
-                  </div>
-                </a>
-                <% }) %>
+                    </div>
+                  </a>
+                  <%}%>
+              <% }) %>
             </div>
           </div>
         </div>
@@ -70,7 +71,7 @@
           </div>
         </div>
         <input type="hidden" name="origen" id="metodoOrigen" value="<%= pagos[0].id %> ">
-        <input type="hidden" name="destino" id="metodoDestino" value="<%= pagos[2].id %> ">
+        <input type="hidden" name="destino" id="metodoDestino" value="<%= pagos[12].id %> ">
         <span class="text-danger" id="msgError"></span>
       </form>
     </div>
@@ -84,12 +85,24 @@
           <li>Te enviamos el saldo cotizado</li>
         </ol>
       </div>
+      <div class="caja-comision">
+        <span class="comision">Comisión PayPal: tené en cuenta que te enviaremos $<span id="comisionTotal"></span>, recordá que PayPal te cobrará
+          una comisión de $6.03. Por lo tanto recibirás un neto de <span class="comisionRecibido"></span> $100.00.</span>
+          <div class="caja-switch">
+            <span>Recibiras un neto de <span class="recibo"></span></span>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+      </div>
       <div class="mas-info">
 
       </div>
 
 
+      
+      <%- include('./partials/footer.ejs') %>
       <script src="../javascripts/<%=JQueryForm %>"></script>
       <script src="/javascripts/<%=scriptForm%>"></script>
       <script src="/javascripts/<%=script%>"></script>
-      <%- include('./partials/footer.ejs') %>

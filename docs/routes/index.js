@@ -10,10 +10,7 @@ router.get('/', indexController.home);
 router.post('/apis/valor', apiValorController.getValorEntrada);
 router.post('/apis/valores', apiValorController.getValorSalida);
 
-
-
-router.get('/formulario',indexController.form);
-router.post('/formulario',indexController.processForm);
+router.post('/',indexController.processForm);
 
 
 
