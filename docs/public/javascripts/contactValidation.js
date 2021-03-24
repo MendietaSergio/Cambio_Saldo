@@ -79,55 +79,14 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     })
     inputAcept.addEventListener('click', () => {
-        console.log(inputAcept);
-        if (inputAcept.checked == true) {
-            habilitarBtn()/*
-            formulario.addEventListener('submit',function(e){
-                e.preventDefault();
-                let elementos = formulario.elements;
-        
-                let error = false;
-                for(let i=0; i<3; i++){
-                    if(elementos[i].value == 0){
-                        elementos[i].classList.add('is-invalid');
-                        error = true;
-                    }
-                }
-                if(elementos[0].value.length <4){
-                    error = true;
-                   
-                    this.classList.add('is-invalid');
-                }
-                if(elementos[1].value.length === 0){
-                    error = true;
-                    this.classList.add('is-invalid');
-                }
-                if(elementos[2].value.length === 0){
-                    error = true;
-                    this.classList.add('is-invalid');
-                }
-                if(!error){
-                    errorSubmit.innerHTML =" ";
-                    Swal.fire({
-                        position: 'top-center',
-                        icon: 'success',
-                        title: 'Tu mensaje ha sido enviado.',
-                        showConfirmButton: false,
-                        timer: 2500
-                    }).then(() => {
-                        formulario.submit();
-                        })
-                    .then(() => {
-                        return res.redirect('/pepe')
-                    })
-                    .catch(error => {
-                        res.send(error)
-                    })
-                }else{
-                    errorSubmit.innerHTML = "Los campos señalados son obligatorios."
-                }
-            })*/
-        } else {
+        console.log(inputAcept.value);
+        let verificar = inputAcept.checked;
+        console.log(verificar);
+        if (verificar = true) {
+            console.log("inputAcept.checked");
+            //habilitarBtn()
+            disblockActualizar()
+        } else if(verificar = false) {
             blockAcutualizar();
             console.log("es off");
         }
@@ -138,12 +97,19 @@ window.addEventListener('DOMContentLoaded', () => {
 
         let error = false;
         for (let i = 0; i < elementos.length; i++) {
-            if (elementos[i].value == 0) {
+            if (elementos[1].value == 0) {
+                elementos[1].classList.add('is-invalid');
                 console.log(elementos[i].value);
-                console.log("entra");
+                console.log("entra elementos[1]");
                 error = true;
             }
-            if(elementos[4].value =="on"){
+            if(elementos[2].value ==0){
+                elementos[2].classList.add('is-invalid');
+                console.log(elementos[2].value);
+                console.log("entra elementos[2]");
+                error = true;
+            }
+            if (elementos[4].value == "on") {
                 console.log("entra on");
                 error = true;
             }
@@ -152,6 +118,7 @@ window.addEventListener('DOMContentLoaded', () => {
             disblockActualizar()
         }
     }
+    //habilitarBtn();
     const blockAcutualizar = () => {
         btn.type = "button";
         btn.style.backgroundColor = "black";
@@ -164,5 +131,51 @@ window.addEventListener('DOMContentLoaded', () => {
         btn.style.borderColor = "rgb(73, 63, 211)";
     }
 
+    
+    formulario.addEventListener('submit', function (e) {
+        e.preventDefault();
+        let elementos = formulario.elements;
+
+        let error = false;
+        for (let i = 0; i < 3; i++) {
+            if (elementos[i].value == 0) {
+                elementos[i].classList.add('is-invalid');
+                error = true;
+            }
+        }
+        if (elementos[0].value.length < 4) {
+            error = true;
+
+            this.classList.add('is-invalid');
+        }
+        if (elementos[1].value.length === 0) {
+            error = true;
+            this.classList.add('is-invalid');
+        }
+        if (elementos[2].value.length === 0) {
+            error = true;
+            this.classList.add('is-invalid');
+        }
+        if (!error) {
+            errorSubmit.innerHTML = " ";
+            /*Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Tu mensaje ha sido enviado.',
+                showConfirmButton: false,
+                timer: 2500
+            }).then(() => {
+                formulario.submit();
+            })
+                .then(() => {
+                    return res.redirect('/pepe')
+                })
+                .catch(error => {
+                    res.send(error)
+                })*/
+        } else {
+            errorSubmit.innerHTML = "Los campos señalados son obligatorios."
+        }
+    })
 
 })

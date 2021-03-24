@@ -8,7 +8,7 @@ div .caja-formulario{
 div .caja-formulario form{
     width: 100%;
     margin: auto;
-    background-color: rgba(41, 48, 57,0.8);
+    background-color: #fff;
     padding: 10px 20px;
     /*colocando esto hace que tome los 40px del padding en los 450px de ancho*/
     box-sizing: border-box;
@@ -18,12 +18,12 @@ div .caja-formulario form:hover{
     box-shadow: 2px 2px 5px 1px rgba(177, 177, 177, 0.9);
 }
 div .titulo-form{
-    color: #fff;
+    color: rgb(0, 0, 0);
     text-align: center;
     margin: 34px;
     font-size: 25px;
     text-decoration: underline 5px;
-    text-decoration-color: green;
+    text-decoration-color: rgb(47, 0, 255);
 }
 div .caja-formulario input{
     width: 100%;
@@ -36,7 +36,7 @@ div .caja-formulario #accept{
     cursor: pointer;
 }
 div .caja-formulario small{
-    color: #fff;
+    color: rgb(0, 0, 0);
 }
 div .caja-formulario #adicional{
     display: none;

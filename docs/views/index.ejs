@@ -16,7 +16,8 @@
           <div class="selectCambioEntrada">
             <div class="select" id="selectEntrada">
               <div class="contenido-select-Entrada">
-                <img class="img-pagos" src="/img/img_medios_de_pagos/<%=pagos[0].image%>.png" alt="<%=pagos[0].nombre%>">
+                <img class="img-pagos" src="/img/img_medios_de_pagos/<%=pagos[0].image%>.png"
+                  alt="<%=pagos[0].nombre%>">
                 <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%=pagos[0].id%>"></h4>
               </div>
               <i class="fas fa-angle-down"></i>
@@ -39,8 +40,9 @@
           </div>
           <div class="selectCambioSalida">
             <div class="select" id="selectSalida">
-              <div class="contenido-select-Salida">                
-                <img class="img-pagos" src="/img/img_medios_de_pagos/<%=pagos[2].image%>.png" alt="<%=pagos[2].nombre%>">
+              <div class="contenido-select-Salida">
+                <img class="img-pagos" src="/img/img_medios_de_pagos/<%=pagos[2].image%>.png"
+                  alt="<%=pagos[2].nombre%>">
                 <h4 type="text" id="tituloOrigen" class="idOcultado" data-id="<%=pagos[2].id%>"></h4>
               </div>
               <i class="fas fa-angle-down"></i>
@@ -48,11 +50,13 @@
 
             <div class="opciones" id="opcionesSalida">
               <% pagos.forEach(dato=> { %>
+                <% if(  true ){%>
                 <a href="#" class="opcionSalida">
                   <div class="contenido-opcion">
-                    <img src="/img/img_medios_de_pagos/<%-dato.image%>.png" alt="<%-dato.nombre%>">
-                    <h4 type="text" id="tituloDestino" class="idOcultado" data-id="<%- dato.id%>"></h4>
-                    </span>
+                      <img src="/img/img_medios_de_pagos/<%-dato.image%>.png" alt="<%-dato.nombre%>">
+                      <h4 type="text" id="tituloDestino" class="idOcultado" data-id="<%- dato.id%>"></h4>
+                      </span>
+                      <%}%>
                   </div>
                 </a>
                 <% }) %>
@@ -83,7 +87,7 @@
       <div class="mas-info">
 
       </div>
-      
+
 
       <script src="../javascripts/<%=JQueryForm %>"></script>
       <script src="/javascripts/<%=scriptForm%>"></script>
